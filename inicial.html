@@ -1,55 +1,38 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>WebModerno</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Web Moderno</title>
 </head>
-
 <body>
-    <h1> Página Inicial</h1>
 
-    <table border="1">
+    <nav>
+        <a href="imagens.html">01 - Imagens</a>
+        <a href="video.html">02 - Video</a>
+    </nav>
 
-            <caoption>Produtos</caption>
+    <section id = "conteudo"></section> 
 
-                <thead>
-                    <tr>
-                        <th>Produto</th>
-                        <th>Preço</th>
-                        <th>Quantidade</th>
-                    </tr>
-                </thead>
+    <script> 
+        documento.querySelectorAll('a').forEach(link => { 
+            const conteudo = document.getElementById('conteudo') 
+            link.onclick = function(e) { 
+                e.preventDefault() 
+                 fetch(link.href) 
+                    .then(resp => resp.text()) 
+                    .then(html => conteudo.innerHTML = html) 
+            } 
+        }) 
+    </script> 
+    <!-- Outra maneira de fazer (Mais geralzão): fetch(link.href) ,  <a href = " ", -->
 
-                <tbody>
-
-                    <tr>
-                        <td>Ipad</td>
-                        <td>3209</td>
-                        <td>10</td>
-                    </tr>
-
-                    <tr>
-                        <td>Samsung</td>
-                        <td>1209</td>
-                        <td>2</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2" rowspan="2">Total</td>
-                        <td>5500</td>
-                    </tr>
-                    <tr>
-                        <td>Teste</td>
-                    </tr>
-                </tfoot>
-
-        </table>
 </body>
+
+<footer>
+    <br>
+    Curso Web Moderno
+</footer>
 
 </html>

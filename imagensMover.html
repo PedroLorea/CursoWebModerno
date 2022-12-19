@@ -1,0 +1,90 @@
+<div wm-slider>
+    <p>
+        <img src = "images.jpg"
+            alt = "lamborghini"    
+            width = "512" height="342"
+            title="Lamborghini Ultima A Gasolina">
+            <!-- Alt = Quando imagem não é carregada ou para leitor de deficientes-->
+            <!-- Width Height = Se quiser -->
+            <!-- Title = Quando passa o mouse-->
+    </p>
+
+    <p class="circular">
+        <img src = "images.jpg">  <!-- Faz um circulo envolta da foto (TEM QUE SER .PNG) com a ajuda do <style> lá de baixo-->
+    </p>
+
+    <p class="texto">
+        <img src="images.jpg"
+        height = "50" align = "left">
+        Textooooooooooo lamborghini Textooooooooooo lamborghini Textooooooooooo lamborghini Textooooooooooo lamborghini
+    </p>
+
+    <p>
+        <picture>
+            <source srcset="images.jpg"
+                media="min-width: 600px)">  <!-- Mostrar uma imagem, se não der mostra a outra-->
+            <img src = "images.jpg">
+        </picture>
+    </p>
+</div>
+
+<style>
+    .circular{
+        width: 512px;
+        background-color: #444;
+    }
+
+    .texto{
+        width: 400px;
+    }
+
+    .texto img {               
+        margin-right: 10px;
+    } 
+</style> <!-- procura class texto e depois procura componente img para aplicar o style-->
+
+<script>
+    function mover(elem, inicio,fim, passo, callback){
+        const novoInicio = inicio-passo
+        if(novoInicio >= fim){
+            elem.style.left = novoInicio + 'px'
+            setTimeout(() =>mover(elem, novoInicio, fim, passo, callback), 7)
+        } else {
+            callback()
+        }
+    }
+
+    //Teste
+    //const p = document.querySelector('[wm-slider] > p')
+    //p.style.display = 'block'
+    //mover(p,1500, -520, 5, () => {
+    //    console.log("Terminou!!!")
+    //})
+
+    function slider(){
+        const elementos = document.querySelectorAll('[wm-slider] > p') //Propriedade wm-slider com elementos p 
+        const slides = Array.from(elementos)
+        exibirSlide(slides, slides[0])
+    }
+
+    function exibirSlide(slides, slide){
+        slide.style.display = 'block'
+        
+        const inicio = innerWidth //Largura da página
+        const fim = -slide.clientWidth //Largura da tag p
+
+        slide.style.left = `${inicio}px`
+        
+        mover(slide, inicio, fim, 5, () => {
+            slide.style.display = 'none'    //Já vai estar fora da visualização mesmo
+            exibirSlide(slides, getProximo(slides, slide))
+        })
+
+        function getProximo(lista, atual){
+            const i= lista.indexOf(atual) + 1
+            return i< lista.length ? lista[i] : lista[0]
+        }
+
+        slider()
+    }
+</script>
