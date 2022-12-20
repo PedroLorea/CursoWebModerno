@@ -6,7 +6,36 @@
     <title>CSS Selectors</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        #aprovados {
+            color: #ff0;
+            background-color: #f77;
+        }
+        #aninhado > div {
+            color: #ff0;
+            background-color: rebeccapurple;
+        }
+        [feira]{
+            color: royalblue;
+            background-color: aliceblue;
+        }
+        [feira~=escritorio]{ /* A palavra absoluta ex: escritorio limpo*/ 
+            color: royalblue;
+            background-color: aliceblue;
+        }
+        [feira*=escritorio]{ /* Se tiver sa em qualquer parte do texto do atrib */
+            color: royalblue;
+            background-color: aliceblue;
+        }
+        span:nth-child(1){ /* Primeiro filho de alguém */
+            color: #ff0;
+            background-color: aqua;
+        }
+        section > :nth-child(even), ul{ /* Os filhos dentro da section e ul que são ímpares. (legal para tabelas)*/
+                                        /* */
+        }
+        section > span:nth-of-type(2){ /* Segundo elemento do tipo span dentro de section */
+
+        }
     </style>
 </head>
 

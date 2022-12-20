@@ -1,0 +1,20 @@
+/* 
+    SELETORES:
+    * -> aplicar a todos os elementos
+    elem -> o próprio elemento (ex: h1, p)
+    .class -> reusar uma classe em mais de um componente (projetado para uso de css)
+    #id -> aplicar estilo ou fazer navegação também
+    [atrib] -> atributos personalizados
+
+    pseudo-class -> :
+    pseudo-elementos -> :: (ex: primeira letra)
+
+    COMBINAR SELETORES:
+    div + p -> um seguido do outro (irmãos adjacentes)
+    div ~ p -> irmãos que não precisam estar um do lado do outro (irmão geral)
+    div > p -> filho direto
+    div p -> qualquer elemento que esteja descendente
+    div , p -> aplicar nas divs e no p
+
+    OBS: div + p , div ~ p => Aplica o estilo no p
+*/

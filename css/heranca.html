@@ -5,7 +5,18 @@
     <meta charset="UTF-8">
     <title>Herança</title>
     <style>
-        /* ... */
+        /* Algumas propriedades são herdadas por padrão (font-family) outras não(border) */
+        body{
+            font-family: monospace;
+            font-size: 40px;
+            border: solid 3px red;
+        }
+        
+        div{
+            border:inherit; /* Herdar do body */
+        }
+
+
     </style>
 </head>
 

@@ -6,6 +6,33 @@
     <title>Especificidade CSS</title>
     <style>
         /* https://developer.mozilla.org/pt-BR/docs/Web/CSS/Specificity */
+
+        /* No inspecionar do browser, a prioridade de estilo é de cima para baixo*/
+
+        /* 
+            Em linhas gerais...
+            1. regra com !important (burla a regra normal de especificidade)
+            2. seletores mais específicos
+            3. última regra processada (empate)
+        */
+        
+        .observacao{  /* .observacao nivel maior de especificidade que p*/
+            background-color: #5F5;
+        }
+        
+        p {
+            background-color: #aaa;
+            border: dashed 5px;
+            padding: 20px!important; /*padding com padding. burla quando é a mesma funcionalidade. background-color com background não funciona*/
+            font-size: 40px;
+        }
+        
+        p.observacao { /* Nivel maior de especificidade do que p e observacao*/
+            padding: 5px 60px;
+            background: linear-gradient(to right, red, yellow);
+            font-size: 80px;
+        }
+        
     </style>
 </head>
 
@@ -13,4 +40,4 @@
     <p class='observacao'>Olha essa observação!!!!</p>
 </body>
 
-</html>
+</html>  
