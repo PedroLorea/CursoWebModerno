@@ -5,7 +5,28 @@
     <meta charset="UTF-8">
     <title>Display</title>
     <style>
-        /* ... */
+        body{
+            font-size: 40px;
+            color: #fff;
+            background-color: coral;
+        }
+
+        ul{ padding: 0;}
+        div{ background-color: seagreen;}
+        span { background-color: dodgerblue;}
+        li{ background-color: purple;}
+
+        div, span, li {
+            width: 50%;
+            width: 200px;
+            height: 80px; /*span ignorou width e height */
+            padding-top: 30px;
+            text-align: center;
+            display: block; /* span considerou. display block faz o elemento ter uma linha individual */
+            display: inline; /* ñ consegue colocar altura, largura */
+            display: inline-block;
+        }
+        /* inline-block pode dar um comportamento estranho, colocar min-width, cuidar os tamanhos para ele não quebrar a linha */
     </style>
 </head>
 

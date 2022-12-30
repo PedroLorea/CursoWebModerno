@@ -8,6 +8,7 @@
         body {
             font-size: 40px;
             background-color: coral;
+            height: 100%;
         }
 
         div {
@@ -16,6 +17,12 @@
 
         span {
             background-color: dodgerblue;
+        }
+
+        span, div {
+            width: 50%;
+            height: 250px; /* tamanhos absolutos faz o body crescer*/
+            height: 50%; /* se for percentual, ele vai levar em consideração o parent */
         }
     </style>
 </head>

@@ -5,7 +5,26 @@
     <meta charset="UTF-8">
     <title>Unidades #01</title>
     <style>
-        /* ... */
+        /* 2em = 2 vezes o tamanho da fonte do pai/padrão*/
+        /* 1vw = 1/100 da largura*/
+        .unidades-absolutas{
+            position: absolute;
+            font-size: 40px;
+            padding: 20px;
+            top: 150px; /* (tem que ter position: absolute) espaço entre o elemento e o topo da página */
+        }
+
+        .unidades-relativas {
+            position: absolute;
+            font-size: 4em; /* boa prática fontes relativas, ex: se for alterado no browser ela é alterada consequentemente em cima dessa nova config*/
+            padding: 5%;
+            border: solid 1vw #222;
+            margin: .8%;
+            width: 20vw;
+            height: 15vh;
+            bottom: 5%;
+            right: 5%;
+        }
     </style>
 </head>
 
