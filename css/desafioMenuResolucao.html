@@ -93,6 +93,24 @@
             background: #f50a31;
             color: #fff;
         }
+
+        @media(min-width: 679px) {
+            .menu-toggle{
+                display: none;
+            }
+        }
+
+        @media(max-width: 680px){
+            .menu{
+                display: none;
+            }
+        }
+
+        @media(max-width: 910px){
+            .autenticacao{
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -109,16 +127,16 @@
         <nav class="menu">
             <ul>
                 <li>
-                    <a href="#inicio" class="opcao">Início</a>
+                    <a href="#inicio">Início</a>
                 </li>
                 <li>
-                    <a href="#cursos" class="opcao">Cursos</a>
+                    <a href="#cursos">Cursos</a>
                 </li>
                 <li>
-                    <a href="#sobre" class="opcao">Sobre</a>
+                    <a href="#sobre">Sobre</a>
                 </li>
                 <li>
-                    <a href="#contato" class="opcao">Contato</a>
+                    <a href="#contato">Contato</a>
                 </li>
             </ul>
         </nav>
@@ -130,7 +148,16 @@
     <div class = "linha"></div>
 
     <script>
-        // ...
+        window.onhashchange = function(e){ //Não ta funcionado esse .onhashchange (??)
+            const oldURL = e.oldURL.split('#')[1]
+            const newURL = e.newURL.split('#')[1]
+            console.log('Oi')
+            console.log(oldURL, newURL)
+            const oldLink = document.querySelector(`.menu [href='#${oldURL}']`)
+            const newLink = document.querySelector(`.menu [href='#${newURL}']`)
+            oldLink && oldLink.classList.remove('selected')
+            newLink && newLink.classList.add('selected')
+        }
     </script>
 </body>
 
