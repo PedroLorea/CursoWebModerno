@@ -3,9 +3,55 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Desafio Card</title>
+    <title>Desafio Card Resolução</title>
     <style>
-        /* ... */
+        .curso{
+            /* float: left; pode ser assim ou.. inline-block*/
+            display: inline-block;
+            vertical-align: top; /* Por algum motivo a img não esteja presente ficam alinhados pelo topo*/
+            font-family: Verdana, sans-serif;
+            border: solid 1px #CCC;
+            box-shadow: 0 4px 20px 0 rgba(0,0,0,0.3);
+            height: 300px;
+            width: 260px;
+            margin: 5px 20px;
+            padding: 5px;
+        }
+
+        .curso img{
+            width: 100%;
+            max-height: 50%; /*Caso a img seja mto vertical não faz sentido ocupar mais de 50% */
+        }
+
+        .curso-info{
+            padding: 10px;
+            height: 90px;
+            overflow: hidden;
+        }
+
+        .curso-info h4{
+            font-size: 1.4em;
+            font-weight: 100;
+            margin: 0px; /* Margem do h4 fazia fica um espação entre img e nome do curso*/
+        }
+
+        .curso-preco{
+            float: right;
+            padding: 10px;
+        }
+
+        .preco-de{
+            text-decoration: line-through;
+            color: firebrick;
+        }
+
+        .preco-por{
+            color: green;
+            font-weight: bold;
+            font-size: 1.4em;
+        }
+
+
     </style>
 </head>
 
