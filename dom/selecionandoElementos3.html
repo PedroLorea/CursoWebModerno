@@ -24,14 +24,23 @@
     <h1>Formulário</h1>
     <form name="pesquisa" action="http://www.google.com.br/search">
         <input type="text" name="q" placeholder="Digite o termo...">
-        <select name="hl">
+        <select name="hl"> <!-- q e hl não são aleatórios. é o que o google suporta-->
             <option value="pt-br">Português (Brasil)</option>
             <option value="en-us">Inglês (Americano)</option>
         </select>
         <button>Pesquisar</button>
     </form>
     <script>
-        // ...
+        console.log(document.forms)
+        console.log(document.forms[0])
+        console.log(document.getElementsByName('pesquisa')) // Traz node list
+        console.log(document.getElementsByTagName('form')) //Traz HTML collection
+        console.log(document.pesquisa)
+        console.log(document.pesquisa.q)
+        document.pesquisa.q.value = 'Linux'
+        document.pesquisa.hl.value = 'en-us'
+        console.log(document.pesquisa.hl.selectedIndex)
+
     </script>
 </body>
 

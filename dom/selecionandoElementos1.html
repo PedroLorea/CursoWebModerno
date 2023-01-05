@@ -10,7 +10,19 @@
     <div>Segundo</div>
     <div class="terceiro ultimo">.terceiro .ultimo</div>
     <script>              
-        // ...
+        document.getElementById('primeiro').classList.add('destaque')
+    
+        //html collections para ...
+        const divs = document.getElementsByIdTagName('div') // Elements no plural, ou seja, vai retornar uma lista (pega o primeiro div q encontrar)
+        Array.from(divs).forEach(e => e.classList.remove('destaque')) //Interessante passar para array fica mais facil de manipular
+    
+        const divsArray = [...divs] //operador spread
+        divsArray.forEach(e => e.classList.add('destaque'))
+
+        const ultimosElementos = document.getElementsByClassName('ultimo')
+        for(let e of ultimosElementos){
+            e.classList.remove('destaque')
+        }
     </script>
 </body>
 </html>
