@@ -10,6 +10,16 @@
 <body class="conteudo exercicio">
     <div>Elemento</div>
     <script>
-        // ...
+        const item = document.querySelector('div')
+        item.style.position = 'absolute'
+
+        item.onmousemouve = e => {
+            const item = e.target //e.target é quem disparou o evento (a div)
+            item.style.cursor = 'move'
+            if(e.buttons){ //Se tiver clicado fica valor diferente de 0, ou seja, true
+                item.style.top = `${e.clientY - (item.clientHeight / 2)}px`
+                item.style.left = `${e.clientX - (item.clientWidth / 2)}px`
+            }
+        }
     </script>
 </body>
