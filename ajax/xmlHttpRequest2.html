@@ -37,5 +37,20 @@
             xhr.open("post", config.url, true)
             xhr.send(config.formData)
         }
+
+        document.querySelector('input[type=file]').onchange = e => {
+            const formData = new FormData()
+            const inputFile = e.target //e.target no caso é o input que tem tipo file
+            formData.append(inputFile.name, inputFile.files[0]) 
+        
+            ajaxUpload({
+                url: "upload",
+                formData: formData,
+                progresso(dados) {
+                    const progresso = document.querySelector('.progresso')
+                    progresso.innerHTML = JSON.stringify(dados)
+                }
+            })
+        }
     </script>
 </body>

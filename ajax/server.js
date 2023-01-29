@@ -31,6 +31,13 @@ app.post('/upload', (req, res) => {
     })
 })
 
+app.post('/formulario', (req, res) => {
+    res.send({
+        ...req.body, //só vai funcionar se tiver o app usando body parser
+        id: 1
+    })
+})
+
 
 
 // app.get('/teste', (req, res) => res.send(console.log('Ok'))) //Função Middleware
