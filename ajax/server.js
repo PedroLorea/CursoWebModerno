@@ -38,6 +38,18 @@ app.post('/formulario', (req, res) => {
     })
 })
 
+app.get('/parOuImpar', (req, res) => {
+    // formas de pegar os dados
+    // req.body
+    // req.query -> localhost:8080/parOuImpar?numero=4
+    // req.params -> localhost:8080/parOuImpar/:numero -> /4
+
+    const par = parseInt(req.query.numero) % 2 === 0
+    res.send({
+        resultado: par ? 'par' : 'impar'
+    })
+})
+
 
 
 // app.get('/teste', (req, res) => res.send(console.log('Ok'))) //Função Middleware
