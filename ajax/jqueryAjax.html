@@ -16,7 +16,7 @@
     <script>
         function exibirResultado(id, dados){ 
             const texto = JSON.stringify(dados)
-            document.getElementById(id).innerHTML = textao
+            document.getElementById(id).innerHTML = texto
         }
 
         $.ajax({ // jQuery.ajax ou $.ajax
@@ -25,9 +25,11 @@
                 numero: 5
             },
             sucess(data){
+                console.log('a')
                 exibirResultado('get', data)
             },
             error(e){
+                console.log('b')
                 exibirResultado('post', e)
             }
         })
