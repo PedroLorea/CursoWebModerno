@@ -1,4 +1,4 @@
-export interface Vendavel {
+export interface Vendavel { //exportada para ser usada em outros arquivos
     nome: string
     preco: number
 }

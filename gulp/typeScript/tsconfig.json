@@ -4,7 +4,7 @@
     ],
     "compilerOptions": {
         "rootDir": "src",
-        "noImplicitAny": true,
+        "noImplicitAny": true, //any é tipo um var
         "target": "es5"
     }
 }
