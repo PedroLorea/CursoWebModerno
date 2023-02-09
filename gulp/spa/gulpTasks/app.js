@@ -33,6 +33,8 @@ function appIMG(){
         .pipe(gulp.dest('build/assets/imgs'))
 }
 
+gulp.task('appHTML', appHTML) //para o watch, quando ver alteração no html, atualizar automaticamente
+
 module.exports = {
     appHTML,
     appCSS,
