@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Entendendo jQuery</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Entendendo jQuery</h1>
+    <div>1</div>
+    <div>2</div>
+
+    <script>
+        //jQuery = $ ou jQuery
+        $('div').hide(5000).show(5000).fadeOut(5000) //seleciona as divs, esconde eles em 5 segundos, aparece 5 segundos, some em 5 segunods
+        console.log($('div').get(0)) //Retorna lista de elmentos. Retorna objeto decorados (não é dom puro), mas não aceita .show por ex.
+        
+        //funções utilitárias
+        console.log($.isEmptyObject({nome: null}))
+        console.log(jQuery.inArray(3, [1,2,3])) // retorna -1 se não tiver ou o índice do elemento
+    
+        //pode criar scripts
+        $.fn.fundoVerde = function () {
+            this.css('background-color', 'green')
+            return this //permiti encadear chamada, o fadeout(1000) abaixo
+        }
+        $('body').fundoVerde().fadeOut(1000) 
+    </script>
+</body>
