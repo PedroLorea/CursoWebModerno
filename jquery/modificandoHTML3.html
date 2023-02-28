@@ -11,15 +11,49 @@
 <body class='conteudo exercicio'>
     <h1>Modificando HTML #03</h1>
     <div id='conteudo'></div>
+    <!-- minha tentativa 
+        <thead>
+        <tr id="nome"> Nome </tr>
+        <tr id="nota"> Nota</tr>
+    </thead> -->
 
     <script>
-        const pessoas = [
+
+        $(function() { //quando documento tiver pronto chame essa função
+
+        })
+
+        //ou 
+
+        $(document).ready(function() { //quando documento tiver pronto chame essa função
+            const pessoas = [
             { nome: 'Ana', nota: 9.1 },
             { nome: 'Bianca', nota: 8.4 },
             { nome: 'Carlos', nota: 7.6 },
             { nome: 'Julia', nota: 9.7 }
         ]
-        
-        // ...
+
+        const linhas = pessoas.map(aluno => {
+            const tdNome = $('<td>').html(aluno.nome)
+            const tdNota = $('<td>').html(aluno.nota)
+            return $('<tr>').append(tdNome).append(tdNota) //ou
+            //return $('<tr>').append(tdNome, tdNota) ou
+            //return $('<tr>').append([tdNome, tdNota])
+        })
+
+        const tabela = $('<table>').append(linhas)
+            .css('border', 'solid 5px')
+        $('#conteudo').append(tabela)
+
+
+        }) 
+
+        // minha tentativa
+        // pessoas.forEach(element => {
+        //     $('<td>').append(element.nome)
+        //     $('<td>').append(element.nota)
+        // });
+
+        // $('tr').append('#conteudo')
     </script>
 </body>
