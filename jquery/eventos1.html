@@ -20,6 +20,43 @@
     <input type="text" placeholder="Cor de Background">
 
     <script>
-        // ...
+        function mostrarPosicaoMouse(e){
+            $('#posicao').html(`x: ${e.clientX} y: ${e.clientY}`)
+        }
+
+        $('body').on('mousemove', mostrarPosicaoMouse) //on registra um evento no jQuery
+        
+        $('#posicao').mouseover(e => {
+            $('body').off('mousemove', mostrarPosicaoMouse)
+        }) //Caso mouse passe em cima da div, para de registrar as coordenados do mouse
+        
+        $('#posicao').mouseleave(e => {
+            //$('body').on('mousemove', mostrarPosicaoMouse) ou
+            $('body').mousemove(mostrarPosicaoMouse)
+        }) //volta a monitorar movimento do mouse
+        
+
+        
+        let cliques = 0
+        function registraClique(e){
+            $('#cliques').html(html+1)
+        }
+
+        $('body').click(e => {
+            $('#cliques').html(`Cliques: ${++cliques}`)
+        })
+
+
+
+        const backgroundOriginal = $('body').css('background-color')
+        
+        $('input').keyup(function(e){ 
+            const valor = $(this).val() //se fosse arrow function o this aponta para o window e não para o input
+            if(valor.match(/#[/da-fA-F]{3,6}/)){
+                $('body').css('background-color', valor)
+            } else {
+                $('body').css('background-color', backgroundOriginal)
+            }
+        })
     </script>
 </body>
