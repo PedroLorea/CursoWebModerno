@@ -21,6 +21,32 @@
 <hr>
 
 <!-- Botões -->
+<div>
+    <div class="mb-3">
+        <button class="btn btn-primary">Salvar</button>
+        <button class="btn btn-secondary">Cancelar</button>
+        <button class="btn btn-outline-sucess">Finalizar</button>
+        <button class="btn btn-danger" disabled>Excluir</button>
+        <button class="btn btn-warning" data-toggle="button">Selecione</button> <!-- botão com estado, clica fica escuro, clica volta ao normal-->
+    </div>
+
+    <div class="btn-group mb-3">
+        <div class="button btn btn-info">Esquerda</div>
+        <div class="button btn btn-info active">Centro</div>
+        <div class="button btn btn-info">Direita</div>
+    </div>
+
+    <div class="dropdown">
+        <div class="button btn btn-danger btn-lg dropdown-toggle"
+            data-toggle="dropdown">
+            Comprar!
+        </div>
+        <div class="dropdown-menu">
+            <a href="#" class="dropdown-item">Paypal</a>
+            <a href="#" class="dropdown-item">Pagseguro</a>
+        </div>
+    </div>
+</div>
 
 <h1 class="mt-5">2. Progresso -
     <small>
@@ -31,6 +57,16 @@
 
 <!-- Progresso -->
 
+<div>
+    <div class="progress mb-4">
+        <div class="progress-bar" style="width:25%;"></div>
+    </div>
+
+    <div class="progress mb-4">
+        <div class="progress-bar progress-bar-striped bg-sucess" style="width: 50%;">50%</div>
+    </div>
+</div>
+
 <h1 class="mt-5">3. Mensagens (Alertas) -
     <small>
         <a href="https://getbootstrap.com/docs/4.0/components/alerts/" target="_black">Documentação Oficial</a>
@@ -39,7 +75,12 @@
 <hr>
 
 <!-- Alertas -->
-
+<div>
+    <div class="alert alert-sucess">Sucesso!</div>
+</div>
+<div>
+    <div class="alert alert-warning"><strong>Erro</strong>occoreu um erro</div>
+</div>
 <h1 class="mt-5">4. Paginação -
     <small>
         <a href="https://getbootstrap.com/docs/4.0/components/pagination/" target="_black">Documentação Oficial</a>
@@ -47,8 +88,23 @@
 </h1>
 <hr>
 
-<!-- Peginação -->
-
+<!-- Paginação -->
+<div>
+    <nav>
+        <li class="pagination">
+            <a href="#" class="page-item">Anterior</a>
+        </li>
+        <li class="pagination active">
+            <a href="#" class="page-item">1</a>
+        </li>
+        <li class="pagination">
+            <a href="#" class="page-item">2</a>
+        </li>
+        <li class="pagination">
+            <a href="#" class="page-item">Próximo</a>
+        </li>
+    </nav>
+</div>
 <h1 class="mt-5">5. Tooltip -
     <small>
         <a href="https://getbootstrap.com/docs/4.0/components/tooltip/" target="_black">Documentação Oficial</a>
@@ -57,7 +113,20 @@
 <hr>
 
 <!-- Tooltip -->
+<div>
+    <div class="div alert alert-warning">
+        Precisa chamar uma função JS!
+    </div>
 
+    <button class="btn btn-danger"
+     data-toggle="tolltip" data-placement="top"
+      title="Pense Antes!">
+      Excluir
+    </button>
+</div>
+
+<!--     $('[data-toggle="tolltip"]').tooltip()
+            O tolltip teria que rodar o JS, e se colocar no script abaixo apenas ele não roda por padrão -->
 <h1 class="mt-5">6. Slider -
     <small>
         <a href="https://getbootstrap.com/docs/4.0/components/carousel/" target="_black">Documentação Oficial</a>
@@ -66,6 +135,19 @@
 <hr>
 
 <!-- Slider -->
+
+<div>
+    <div class="carousel slide" id="slider" data-ride="carousel">
+        <div class="crousel-inner bg-dark">
+            <div class="carousel-item active">
+                <img src="/imgs/slide1.png" alt="Slide1" class="d-block mx-auto">
+            </div>
+        </div>
+        <a href="#slider" class="carousel-control-prev" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+    </div>
+</div>
 
 <h1 class="mt-5">7. Accordion -
     <small>
@@ -76,6 +158,24 @@
 
 <!-- Accordion -->
 
+<div>
+    <div class="mb-5" id="accordion">
+        <div class="card">
+            <div class="card-header" id="pergunta1">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#resposta1">
+                        Quem é o professor?
+                    </button>
+                </h5>
+            </div>
+            <div class="collapse" id="resposta1" data-parent="#accordion">
+                <div class="card-body">
+                    Posso dizer? :D
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
-    // ...
+
 </script>
