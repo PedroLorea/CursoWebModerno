@@ -4,14 +4,21 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const path = require('path');
 
 module.exports = {
     mode: modoDev ? 'development' : 'production',
     entry: './src/index.js',
     devServer: {
-        contentBase: './build',
+        static: {
+            directory: path.join(__dirname, 'build')
+        },
         port: 9000,
     },
+    // devServer: {
+    //     contentBase: './build',
+    //     port: 9000,
+    // },
     optimization: {
         minimizer: [
             new UglifyJsPlugin({
@@ -28,10 +35,16 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({ filename: 'estilo.css' }),
-        new CopyWebpackPlugin([
-            { context: 'src/', from: '**/*.html' },
-            { context: 'src/', from: 'imgs/**/*' }
-        ])
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'src/**/*.html', to: '[name].html' },
+                { from: 'src/imgs/**/*', to: 'imgs/[name].[ext]' }
+            ]
+        })
+        // new CopyWebpackPlugin([
+        //     { context: 'src/', from: '**/*.html' },
+        //     { context: 'src/', from: 'imgs/**/*' }
+        // ])
     ],
     module: {
         rules: [{
