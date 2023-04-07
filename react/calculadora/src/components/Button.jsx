@@ -4,4 +4,11 @@ import './Button.css'
 //Sempre tentar fazer componentes sem estado
 
 export default props =>
-    <button className='button'>0</button>
+    <button onClick={e => props.click && props.click(props.label)} className={`
+        button
+        ${props.operation ? 'operation' : ''}
+        ${props.double ? 'double' : ''}
+        ${props.triple ? 'triple' : ''}
+    `}>
+        {props.label}
+    </button>
