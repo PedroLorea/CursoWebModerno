@@ -4,7 +4,17 @@ import './Calculator.css'
 import Button from '../components/Button'
 import Display from '../components/Display'
 
+const initialState = {
+    displayValue: 0,
+    clearDisplay: false,
+    operation: null,
+    values: [0, 0],
+    current: 0
+}
+
 export default class Calculator extends Component {
+
+    state = {...initialState}
 
     constructor(props){ //garante que pega o this correto
         super(props)
@@ -14,22 +24,65 @@ export default class Calculator extends Component {
     }
 
     clearMemory(){
-        console.log('limpar')
+        this.setState({initialState})
     }
 
     setOperation(operation){
+        if(this.state.current === 0){
+            this.setState({ operation , current: 1, clearDisplay: true})
+        } else {
+            const equals = operation === '='
+            const currentOperation = this.state.operation
 
+            const values = [...this.state.values]
+
+            try{
+                values[0] = eval(`${values[0]} ${currentOperation} ${values[1]}`) //poderia utilizar o switch, só para não ficar grande, utilizou o eval
+                if(isNaN(values[0] || !isFinite(values[0]))) { //caso faça divisão e depois divisão não bugar a calculadora
+                    this.clearMemory()
+                    return
+                }
+            } catch(e) {
+                values[0] = this.state.values[0]
+            }
+
+            values[1] = 0
+
+            this.setState({
+                displayValue: values[0],
+                operation: equals ? null : operation, 
+                current: equals ? 0 : 1,
+                clearDisplay: !equals,
+                values
+            })
+        }
     }
 
     addDigit(n){
+        if (n === '.' && this.state.displayValue.includes('.')){
+            return
+        }
 
+        const clearDisplay = this.state.displayValue === 0
+            || this.state.clearDisplay
+        const currentValue = clearDisplay ? '' : this.state.displayValue
+        const newDisplayValue = currentValue + n
+        this.setState({ displayValue: newDisplayValue, clearDisplay: false})
+
+        if(n !== '.'){
+            const i = this.state.current
+            const newValue = parseFloat(displayValue)
+            const values = [...this.state.values]
+            values[i] = newValue
+            this.setState({values})
+        }
     }
 
     render(){
 
         return (
             <div className="calculator">
-                <Display value={100} />
+                <Display value={this.state.displayValue} />
                 <Button label="AC" click={this.clearMemory} triple/>
                 <Button label="/" click={this.setOperation} operation/>
                 <Button label="7" click={this.addDigit}/>
