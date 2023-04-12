@@ -1,10 +1,11 @@
-import { createElement } from "react"
+import Link from 'next/Link' //Navegar entre componentes no next.js
 
 export default function Inicio(){
     return (
         <div>
-            <h1>Fundamentos de Next.js e React</h1>
-            <h2>Vamos estudar esse framework.</h2>
+            <Link href="/estiloso">
+                Estiloso
+            </Link>
         </div>
     )
 }
