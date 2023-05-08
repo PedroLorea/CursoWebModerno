@@ -1,17 +1,38 @@
+import { useState } from "react"
+import Layout from "../components/Layout"
+
 export default function Integracao(){
 
-    //assíncrono
-    fetch('http://localhost:3000/api/clientes/123')
-        .then(resp => resp.json())
-        .then(dados => console.log(dados))
+    const [codigo, setCodigo] = useState("")
+    const [cliente, setCliente] = useState({id: '', nome: '', email: ''})
+
+    
+    // function obterCliente(){
+    //     //assíncrono
+    //     fetch(`http://localhost:3000/api/clientes/${codigo}`)
+    //         .then(resp => resp.json())
+    //         .then(dados => setCliente(dados))
+    // }
+
+    async function obterCliente(){
+        //assíncrono
+        const resp = await fetch(`http://localhost:3000/api/clientes/${codigo}`)
+        const dados = await resp.json()
+        setCliente(dados)
+    }
 
     return (
-        <div>
+        <Layout>
+            <div>
+                <input type="number" value={codigo}
+                    onChange={e => setCodigo(e.target.value)}/>
+                <button onClick={obterCliente}>Obter Cliente</button>
+            </div>
             <ul>
-                <li>Código: </li>
-                <li>Nome: </li>
-                <li>Email: </li>
+                <li>Código: {cliente.id}</li>
+                <li>Nome: {cliente.nome}</li>
+                <li>Email: {cliente.email}</li>
             </ul>
-        </div>
+        </Layout>
     )
 }
