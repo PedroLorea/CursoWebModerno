@@ -5,6 +5,12 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+    safelist: [ //garante que no momento que for mandado para a produção, para garantir que vai ir interpolação do tailwind
+      /^bg-/,
+      /^to-/,
+      /^from-/,
+    ],
+
   theme: {
     extend: {
       backgroundImage: {
